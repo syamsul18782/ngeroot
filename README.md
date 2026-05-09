@@ -18,7 +18,7 @@ EasyRoot VPS adalah solusi satu baris perintah (one-liner) untuk mengaktifkan ak
 
 Cukup salin dan tempel perintah di bawah ini ke terminal VPS Anda (pastikan Anda sudah login menggunakan user biasa yang memiliki akses sudo):
 
-`bash <(curl -Ls [https://raw.githubusercontent.com/syamsul18782/ngeroot/main/easyroot.sh]`
+```bash <(curl -Ls [https://raw.githubusercontent.com/syamsul18782/ngeroot/main/easyroot.sh]```
 
 
 🛠️ Alur Kerja Skrip
