@@ -18,37 +18,26 @@ EasyRoot VPS adalah solusi satu baris perintah (one-liner) untuk mengaktifkan ak
 
 Cukup salin dan tempel perintah di bawah ini ke terminal VPS Anda (pastikan Anda sudah login menggunakan user biasa yang memiliki akses sudo):
 
-bash <(curl -Ls [https://raw.githubusercontent.com/syamsul18782/ngeroot/main/easyroot.sh](https://raw.githubusercontent.com/syamsul18782/ngeroot/main/easyroot.sh))
+```bash <(curl -Ls [https://raw.githubusercontent.com/syamsul18782/ngeroot/main/easyroot.sh](https://raw.githubusercontent.com/syamsul18782/ngeroot/main/easyroot.sh))```
 
 
 🛠️ Alur Kerja Skrip
-
 Inisialisasi: Membersihkan layar dan menampilkan panduan input password.
-
 Setup Password: Menghasilkan password root sesuai input manual yang Anda masukkan.
-
 Konfigurasi SSH:
-
 Mencari dan memodifikasi file /etc/ssh/sshd_config.
-
 Mengizinkan login root dan autentikasi password secara eksplisit.
-
 Verifikasi: Menampilkan teks konfirmasi detail akun root Anda untuk pengecekan terakhir.
-
 Finalisasi: Menghitung mundur 10 detik, kemudian melakukan reboot sistem secara otomatis.
 
 ⚠️ Peringatan Keamanan
-
 Mengaktifkan akses root dengan autentikasi password meningkatkan risiko terhadap serangan brute force.
-
 Gunakanlah password yang sangat kuat (gabungan huruf besar, kecil, angka, dan simbol).
-
 Sangat disarankan untuk segera mengganti password secara berkala atau beralih menggunakan SSH Key setelah akses root berhasil diaktifkan.
 
 👤 Kontributor
 
-Syamsul - @syamsul18782
+ @syamsul18782
 
 📝 Catatan
-
 Skrip ini didesain khusus untuk keluarga sistem operasi Debian/Ubuntu. Penggunaan pada distribusi Linux lain mungkin memerlukan penyesuaian manual pada lokasi file konfigurasi SSH.
