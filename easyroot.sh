@@ -13,11 +13,12 @@ echo "=========================================="
 # Fungsi untuk meminta password secara interaktif
 get_password() {
     while true; do
+        # Menambahkan < /dev/tty agar read bisa membaca keyboard saat dipipe
         echo -n "Masukkan Password Root Baru: "
-        read -s NEW_PASS
+        read -s NEW_PASS < /dev/tty
         echo ""
         echo -n "Konfirmasi Password Root   : "
-        read -s CONFIRM_PASS
+        read -s CONFIRM_PASS < /dev/tty
         echo ""
 
         if [[ -z "$NEW_PASS" ]]; then
