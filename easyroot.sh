@@ -1,30 +1,31 @@
 #!/bin/bash
 # ==========================================
 # easyroot.sh
-# MODULE: AUTOMATIC ROOT ACCESS ENABLER (INTERACTIVE)
-# Deskripsi: Mengaktifkan login root & password via SSH dengan input manual
+# MODULE: AUTOMATIC ROOT ACCESS ENABLER (INTERACTIVE - VISIBLE)
+# Deskripsi: Mengaktifkan login root & password via SSH dengan input manual (Teks Terlihat)
 # ==========================================
 
 clear
 echo "=========================================="
 echo "      SETTING AKSES ROOT VPS             "
 echo "=========================================="
+echo " PERINGATAN: Password akan terlihat saat "
+echo " diketik untuk menghindari salah ketik.   "
+echo "=========================================="
 
 # Fungsi untuk meminta password secara interaktif
 get_password() {
     while true; do
-        # Menambahkan < /dev/tty agar read bisa membaca keyboard saat dipipe
-        echo -n "Masukkan Password Root Baru: "
-        read -s NEW_PASS < /dev/tty
-        echo ""
-        echo -n "Konfirmasi Password Root   : "
-        read -s CONFIRM_PASS < /dev/tty
-        echo ""
+        # Menghapus flag -s agar password terlihat saat diketik
+        echo -n "Masukkan Password Root Baru : "
+        read NEW_PASS < /dev/tty
+        echo -n "Konfirmasi Password Root    : "
+        read CONFIRM_PASS < /dev/tty
 
         if [[ -z "$NEW_PASS" ]]; then
-            echo -e "\e[31m[ERROR]\e[0m Password tidak boleh kosong!\n"
+            echo -e "\n\e[31m[ERROR]\e[0m Password tidak boleh kosong!\n"
         elif [[ "$NEW_PASS" != "$CONFIRM_PASS" ]]; then
-            echo -e "\e[31m[ERROR]\e[0m Password tidak cocok! Silakan coba lagi.\n"
+            echo -e "\n\e[31m[ERROR]\e[0m Password tidak cocok! Silakan coba lagi.\n"
         else
             break
         fi
@@ -54,13 +55,21 @@ if ! grep -q "^PasswordAuthentication yes" /etc/ssh/sshd_config; then
 fi
 
 echo -e "[3/3] Menyiapkan reboot sistem..."
-sleep 2
+sleep 1
 
 echo -e "\n=========================================="
-echo "  AKSES ROOT BERHASIL DIAKTIFKAN!"
-echo "  Silakan login dengan user: root"
-echo "  Server akan reboot dalam 5 detik..."
+echo "      KONFIRMASI AKSES ROOT VPS          "
 echo "=========================================="
-sleep 5
+echo " AKUN LOGIN ANDA TELAH SIAP:              "
+echo "                                          "
+echo " Username : root                          "
+echo " Password : $NEW_PASS                     "
+echo "                                          "
+echo " CATATAN: Pastikan Anda mencatat password "
+echo " di atas sebelum VPS melakukan reboot.    "
+echo "=========================================="
+echo " Server akan reboot dalam 10 detik...     "
+echo "=========================================="
+sleep 10
 
 reboot
