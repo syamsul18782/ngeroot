@@ -56,6 +56,9 @@ npm install express
 # 6. Menulis server.js dengan Integrasi VPS_API_KEY
 echo "-> Menulis file konfigurasi server.js..."
 cat << EOF > server.js
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+
 const express = require('express');
 const app = express();
 
