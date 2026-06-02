@@ -28,9 +28,9 @@ fi
 echo "-> Memperbarui daftar paket sistem..."
 apt-get update -y
 
-# 3. Install Node.js (Menggunakan NodeSource v18.x)
-echo "-> Memasang Node.js v18..."
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+# 3. Install Node.js (Menggunakan NodeSource v20.x - LTS)
+echo "-> Memasang Node.js v20..."
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt-get install -y nodejs build-essential curl git
 
 # Verifikasi Node.js
