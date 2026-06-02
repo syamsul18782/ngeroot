@@ -20,7 +20,7 @@ if [ -n "$1" ]; then
     VPS_KEY="$1"
     echo "-> Menggunakan VPS_API_KEY kustom: $VPS_KEY"
 else
-    VPS_KEY="465eaf4a-178c-4e8b-96d7-831f2568a9df"
+    VPS_KEY="x465eaf4a-178c-4e8b-96d7-831f2568a9dfx"
     echo "-> Menggunakan VPS_API_KEY default: $VPS_KEY"
 fi
 
