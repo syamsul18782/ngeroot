@@ -98,7 +98,7 @@ app.post('/tripay_proxy', async (req, res) => {
     }
 });
 
-const PORT = 8080;
+const PORT = 8082;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(\`TriPay Proxy server running on port \${PORT}\`);
 });
@@ -112,10 +112,10 @@ pm2 save
 # Mengatur startup PM2 agar otomatis jalan saat server reboot
 env PATH=$PATH:/usr/bin pm2 startup systemd -u root --hp /root
 
-# 8. Membuka Firewall Port 8080 (Menggunakan UFW jika terpasang)
+# 8. Membuka Firewall Port 8082 (Menggunakan UFW jika terpasang)
 if command -v ufw >/dev/null 2>&1; then
-    echo "-> Membuka firewall port 8080 (UFW)..."
-    ufw allow 8080/tcp
+    echo "-> Membuka firewall port 8082 (UFW)..."
+    ufw allow 8082/tcp
     ufw reload
 fi
 
